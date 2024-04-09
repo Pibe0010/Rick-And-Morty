@@ -73,11 +73,11 @@
 }
 @media (width > 1026px) {
   .card {
-    width: 350px; /* Aumenta el ancho para pantallas más grandes */
-    height: 350px; /* Aumenta la altura para pantallas más grandes */
+    width: 350px;
+    height: 350px;
   }
   .img {
-    width: 450px; /* Aumenta el tamaño de la imagen para pantallas más grandes */
+    width: 350px;
   }
   .card_content {
     padding: 20px;
