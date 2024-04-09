@@ -9,11 +9,10 @@
   padding: 1rem;
   gap: 20px;
   flex-wrap: wrap;
-  margin: 40px;
+  margin: 10px;
 }
 .title {
-  font-size: clamp(1rem, 5vh, 4.5rem);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
   margin: 1rem;
-
   text-align: center;
 }

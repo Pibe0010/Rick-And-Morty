@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { Character } from "./Character";
-import { MainLayout } from "../Layouts/MainLayout";
 import "./CharactersList.css";
-import { Loading } from "./Loading";
+import { useState } from "react";
+import { Character } from "../components/Character";
+import { MainLayout } from "../Layouts/MainLayout";
+import { Loading } from "../components/Loading";
 
-export const CharactersList = () => {
+export const CharactersListPage = () => {
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -19,7 +19,7 @@ export const CharactersList = () => {
   return (
     <MainLayout>
       <section className="characterList-container">
-        <h1 className="title">Rick And Morty</h1>
+        <h1 className="title">Characters</h1>
         {loading ? (
           <Loading />
         ) : (

@@ -1,7 +1,7 @@
 .card {
   position: relative;
-  width: 350px;
-  height: 350px;
+  width: 250px;
+  height: 250px;
   color: #2e2d31;
   background: #131313;
   overflow: hidden;
@@ -11,11 +11,10 @@
 .temporary_text {
   font-weight: bold;
   font-size: 24px;
-
   color: #f8f8f8;
 }
 .img {
-  width: 350px;
+  width: 250px;
 }
 .card_title {
   font-weight: bold;
@@ -27,7 +26,7 @@
   bottom: 0;
   /* edit the width to fit card */
   width: 100%;
-  padding: 20px;
+  padding: 6px;
   background: #f2f2f2;
   border-top-left-radius: 20px;
   /* edit here to change the height of the content box */
@@ -71,4 +70,16 @@
 .card:hover .card_description {
   opacity: 1;
   transition-delay: 0.25s;
+}
+@media (width > 1026px) {
+  .card {
+    width: 350px; /* Aumenta el ancho para pantallas más grandes */
+    height: 350px; /* Aumenta la altura para pantallas más grandes */
+  }
+  .img {
+    width: 450px; /* Aumenta el tamaño de la imagen para pantallas más grandes */
+  }
+  .card_content {
+    padding: 20px;
+  }
 }
