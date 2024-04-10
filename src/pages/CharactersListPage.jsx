@@ -32,7 +32,7 @@ export const CharactersListPage = () => {
   return (
     <MainLayout>
       <section className="characterList-container">
-        <hi className="title">Characters</hi>
+        <h1 className="title">Characters</h1>
         <section className="btn-page">
           <Button
             page={numberPages}
@@ -45,7 +45,6 @@ export const CharactersListPage = () => {
             Page {numberPages + 1}
           </Button>
         </section>
-
         {loading ? (
           <LoadingData />
         ) : (
