@@ -1,6 +1,6 @@
 import "./Loading.css";
 
-export const Loading = () => {
+export const LoadingData = () => {
   return (
     <div className="loader">
       <div className="box1"></div>

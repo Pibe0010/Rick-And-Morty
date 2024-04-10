@@ -1,27 +1,53 @@
 import "./CharactersList.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Character } from "../components/Character";
 import { MainLayout } from "../Layouts/MainLayout";
-import { Loading } from "../components/Loading";
+import { LoadingData } from "../components/LoadingData";
+import { Button } from "../components/Button.jsx";
 
 export const CharactersListPage = () => {
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [numberPages, setNumberPages] = useState(1);
 
-  const isDataCharacter = async () => {
-    const response = await fetch("https://rickandmortyapi.com/api/character");
-    const data = await response.json();
-    setLoading(false);
-    setCharacters(data.results);
+  useEffect(() => {
+    const isDataCharacter = async () => {
+      const response = await fetch(
+        `https://rickandmortyapi.com/api/character?page=${numberPages}`
+      );
+      const data = await response.json();
+      setLoading(false);
+      setCharacters(data.results);
+    };
+    isDataCharacter();
+  }, [numberPages]);
+
+  const addNextPage = () => {
+    setNumberPages(numberPages + 1);
   };
-  isDataCharacter();
+  const addBackPage = () => {
+    setNumberPages(numberPages - 1);
+  };
 
   return (
     <MainLayout>
       <section className="characterList-container">
         <h1 className="title">Characters</h1>
+        <section className="btn-page">
+          <Button
+            page={numberPages}
+            onClick={() => setNumberPages(addBackPage)}>
+            Page {numberPages}
+          </Button>
+          <Button
+            page={numberPages}
+            onClick={() => setNumberPages(addNextPage)}>
+            Page {numberPages + 1}
+          </Button>
+        </section>
+
         {loading ? (
-          <Loading />
+          <LoadingData />
         ) : (
           <section className="characters">
             {characters.map((character) => {
@@ -29,6 +55,18 @@ export const CharactersListPage = () => {
             })}
           </section>
         )}
+        <section className="btn-page">
+          <Button
+            page={numberPages}
+            onClick={() => setNumberPages(addBackPage)}>
+            Page {numberPages}
+          </Button>
+          <Button
+            page={numberPages}
+            onClick={() => setNumberPages(addNextPage)}>
+            Page {numberPages + 1}
+          </Button>
+        </section>
       </section>
     </MainLayout>
   );
