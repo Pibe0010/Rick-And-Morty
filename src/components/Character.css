@@ -2,10 +2,11 @@
   position: relative;
   width: 250px;
   height: 250px;
-  color: #2e2d31;
+  color: #ffffff;
   background: #131313;
   overflow: hidden;
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .temporary_text {
@@ -27,7 +28,7 @@
   /* edit the width to fit card */
   width: 100%;
   padding: 6px;
-  background: #f2f2f2;
+  background-color: #470764;
   border-top-left-radius: 20px;
   /* edit here to change the height of the content box */
   transform: translateY(136px);
@@ -43,11 +44,11 @@
   height: 100px;
   transform: rotate(-175deg);
   border-radius: 50%;
-  box-shadow: inset 48px 48px #f2f2f2;
+  box-shadow: inset 48px 48px #470764;
 }
 
 .card_title {
-  color: #131313;
+  color: #ffffff;
   line-height: 15px;
 }
 

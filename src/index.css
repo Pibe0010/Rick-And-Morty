@@ -13,4 +13,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #661c87;
+  font-size: clamp(0.5rem, 5vw, 1rem);
+  font-weight: 900;
+  padding: 10px;
 }

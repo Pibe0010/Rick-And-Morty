@@ -10,12 +10,12 @@ export const Character = ({ character }) => {
         <div className="card_content">
           <span className="card_title">{character.name}</span>
           <span className="card_subtitle">{character.species}</span>
-          <p className="card_description">
-            <p> Status :{character.status}</p>
+          <section className="card_description">
+            <p> Status: {character.status}</p>
             <p>Gender: {character.gender}</p>
             <p>Origin: {character.origin.name}</p>
             <p> Created: {character.created}</p>
-          </p>
+          </section>
         </div>
       </article>
     </section>

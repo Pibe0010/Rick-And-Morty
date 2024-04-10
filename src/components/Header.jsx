@@ -1,5 +1,5 @@
 import "./Header.css";
-import logo from "../assets/58f37720a4fa116215a9240f.png";
+import logo from "../assets/logo.png";
 import { useState } from "react";
 import { NavLinks } from "./NavLinks.jsx";
 
@@ -10,16 +10,18 @@ export const Header = () => {
     setMenuOpen((old) => !old);
   };
 
-  const isMenu = menuOpen ? "openMenu" : "";
+  const isMenuAdd = menuOpen ? "openMenu" : "";
   const addClassMenu = menuOpen ? "visible" : "";
 
   return (
     <header className="header-container">
-      <img className="logo" src={logo} alt="Logo Rick And Morty" />
+      <a href="/">
+        <img className="logo" src={logo} alt="Logo Rick And Morty" />
+      </a>
       <label className="hamburger">
         <input
           type="checkbox"
-          className={`closeMenu ${isMenu}`}
+          className={`closeMenu ${isMenuAdd}`}
           onClick={openMenuToggle}
         />
         <svg viewBox="0 0 32 32">
