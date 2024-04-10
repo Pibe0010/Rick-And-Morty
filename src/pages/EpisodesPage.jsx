@@ -23,10 +23,18 @@ export const EpisodesPage = () => {
   }, [numberPages]);
 
   const addNextPage = () => {
-    setNumberPages(numberPages + 1);
+    if (numberPages < 3) {
+      setNumberPages(numberPages + 1);
+    } else {
+      setNumberPages(1);
+    }
   };
   const addBackPage = () => {
-    setNumberPages(numberPages - 1);
+    if (numberPages > 1) {
+      setNumberPages(numberPages - 1);
+    } else {
+      setNumberPages(1);
+    }
   };
 
   return (
@@ -36,13 +44,15 @@ export const EpisodesPage = () => {
         <section className="btn-page">
           <Button
             page={numberPages}
-            onClick={() => setNumberPages(addBackPage)}>
-            Page {numberPages}
+            onClick={() => setNumberPages(addBackPage)}
+            disabled={numberPages === 1}>
+            {numberPages > 1 ? `Page ${numberPages - 1}` : "Initial"}
           </Button>
           <Button
             page={numberPages}
-            onClick={() => setNumberPages(addNextPage)}>
-            Page {numberPages + 1}
+            onClick={() => setNumberPages(addNextPage)}
+            disabled={numberPages === 4}>
+            {numberPages < 3 ? `Page ${numberPages + 1}` : "Finally"}
           </Button>
         </section>
         {loading ? (
