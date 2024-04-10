@@ -32,7 +32,7 @@ export const CharactersListPage = () => {
   return (
     <MainLayout>
       <section className="characterList-container">
-        <h1 className="title">Characters</h1>
+        <hi className="title">Characters</hi>
         <section className="btn-page">
           <Button
             page={numberPages}
