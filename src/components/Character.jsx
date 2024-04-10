@@ -14,7 +14,6 @@ export const Character = ({ character }) => {
             <p> Status: {character.status}</p>
             <p>Gender: {character.gender}</p>
             <p>Origin: {character.origin.name}</p>
-            <p> Created: {character.created}</p>
           </section>
         </div>
       </article>

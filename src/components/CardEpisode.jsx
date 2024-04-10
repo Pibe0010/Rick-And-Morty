@@ -12,8 +12,6 @@ export const CardEpisode = ({ episode }) => {
           <p>{episode.name}</p>
           <p className="title-card">Air data</p>
           <p>{episode.air_date}</p>
-          <p className="title-card">Created</p>
-          <p>{episode.created}</p>
         </div>
       </div>
     </section>

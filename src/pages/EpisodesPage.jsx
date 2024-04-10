@@ -11,7 +11,7 @@ export const EpisodesPage = () => {
   const [numberPages, setNumberPages] = useState(1);
 
   useEffect(() => {
-    const isDataCharacter = async () => {
+    const isDataEpisodes = async () => {
       const response = await fetch(
         `https://rickandmortyapi.com/api/episode?page=${numberPages}`
       );
@@ -19,7 +19,7 @@ export const EpisodesPage = () => {
       setLoading(false);
       setEpisodes(data.results);
     };
-    isDataCharacter();
+    isDataEpisodes();
   }, [numberPages]);
 
   const addNextPage = () => {
