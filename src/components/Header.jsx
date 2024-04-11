@@ -1,16 +1,34 @@
 import "./Header.css";
 import logo from "../assets/logo.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLinks } from "./NavLinks.jsx";
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1026);
 
   const openMenuToggle = () => {
     setMenuOpen((old) => !old);
   };
 
-  const isMenuAdd = menuOpen ? "openMenu" : "";
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1026);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (menuOpen && isMobile) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [menuOpen, isMobile]);
+
+  const addMenuOpen = menuOpen ? "openMenu" : "";
   const addClassMenu = menuOpen ? "visible" : "";
 
   return (
@@ -21,7 +39,7 @@ export const Header = () => {
       <label className="hamburger">
         <input
           type="checkbox"
-          className={`closeMenu ${isMenuAdd}`}
+          className={`closeMenu ${addMenuOpen}`}
           onClick={openMenuToggle}
         />
         <svg viewBox="0 0 32 32">
