@@ -59,13 +59,13 @@ export const Header = () => {
           />
           <NavLinks
             className="link"
-            name="Epìsode"
+            name="Epìsodes"
             url="/episode"
             menuClose={openMenuToggle}
           />
           <NavLinks
             className="link"
-            name="Location"
+            name="Locations"
             url="/location"
             menuClose={openMenuToggle}
           />
