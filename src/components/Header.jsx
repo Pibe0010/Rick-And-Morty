@@ -63,6 +63,12 @@ export const Header = () => {
             url="/episode"
             menuClose={openMenuToggle}
           />
+          <NavLinks
+            className="link"
+            name="Location"
+            url="/location"
+            menuClose={openMenuToggle}
+          />
         </ul>
       </nav>
     </header>
