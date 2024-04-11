@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Modal } from "./Modal.jsx";
 
 export const Character = ({ character }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isModalOpen, setIsModelOpen] = useState(false);
 
   return (
     <>
@@ -16,12 +16,12 @@ export const Character = ({ character }) => {
             <span className="card_title">{character.name}</span>
             <span className="card_subtitle">{character.species}</span>
             <section className="section-btn">
-              <button className="btn-info" onClick={() => setIsOpen(true)}>
+              <button className="btn-info" onClick={() => setIsModelOpen(true)}>
                 More Info
               </button>
             </section>
             <section className="card_description">
-              <p> Status: {character.status}</p>
+              <p>Status: {character.status}</p>
               <p>Gender: {character.gender}</p>
               <p>Origin: {character.origin.name}</p>
             </section>
@@ -29,10 +29,9 @@ export const Character = ({ character }) => {
         </article>
         <Modal
           className="section-btn"
-          open={isOpen}
-          close={() => setIsOpen(false)}>
-          hola mundo
-        </Modal>
+          open={isModalOpen}
+          character={character}
+          close={() => setIsModelOpen(false)}></Modal>
       </section>
     </>
   );

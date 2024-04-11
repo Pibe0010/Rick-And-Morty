@@ -28,7 +28,7 @@
   justify-content: flex-end;
 }
 .btn-modal button {
-  padding: 2px 4px;
+  padding: 1px 4px;
 }
 .logo-modal {
   width: 150px;
@@ -36,6 +36,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.container-modal-character {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.charcter-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 16px;
+}
+.character-name {
+  font-size: 1rem;
 }
 @media (width > 1026px) {
   .modal {
