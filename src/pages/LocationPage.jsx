@@ -6,7 +6,7 @@ import { LoadingData } from "../components/LoadingData.jsx";
 import { LocationCard } from "../components/LocationCard.jsx";
 
 export const LocationPage = () => {
-  const [episodes, setEpisodes] = useState([]);
+  const [locations, setLocations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [numberPages, setNumberPages] = useState(1);
 
@@ -17,7 +17,7 @@ export const LocationPage = () => {
       );
       const data = await response.json();
       setLoading(false);
-      setEpisodes(data.results);
+      setLocations(data.results);
     };
     isDataEpisodes();
   }, [numberPages]);
@@ -59,7 +59,7 @@ export const LocationPage = () => {
           <LoadingData />
         ) : (
           <section className="episodes">
-            {episodes.map((location) => {
+            {locations.map((location) => {
               return <LocationCard key={location.id} location={location} />;
             })}
           </section>
