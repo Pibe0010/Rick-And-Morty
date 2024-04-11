@@ -25,16 +25,15 @@
 
 .navList li .link {
   text-decoration: none;
-  color: aliceblue;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 900;
   transition: 0.6s;
-  box-shadow: linear-gradient(180deg, rgb(255, 255, 255), #02fd41a9);
 }
 .navList li a:hover {
   transition: 0.6s;
   transform-box: border-box;
-  text-shadow: 0 0 20px #00fb47, 0 0 40px #02fd41a9;
+  text-shadow: 0 0 20px #ffffff, 0 0 40px #02c2fda9;
 }
 .openMenu,
 .closeMenu {
@@ -105,12 +104,14 @@
     gap: 1rem;
     align-items: end;
     position: absolute;
-    top: 85px;
+    top: 90px;
     right: 0;
-    background-color: rgb(33, 33, 33);
+    background-color: #661c87;
     padding: 2rem;
     box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
-    width: 250px;
+    border-top-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    width: 150px;
   }
   .nav.visible {
     opacity: 1;
