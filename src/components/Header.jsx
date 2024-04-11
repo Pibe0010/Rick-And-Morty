@@ -53,7 +53,7 @@ export const Header = () => {
         <ul className="navList">
           <NavLinks
             className="link"
-            name="Home"
+            name="Characters"
             url="/"
             menuClose={openMenuToggle}
           />
