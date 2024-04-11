@@ -1,0 +1,16 @@
+.locatios-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: max-content;
+}
+.title-location {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  margin: 0.5rem;
+  text-align: center;
+  background: linear-gradient(80deg, rgb(255, 255, 255), #ab33ea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(191, 123, 255, 0.781), 0 0 40px rgb(217, 176, 255);
+}
