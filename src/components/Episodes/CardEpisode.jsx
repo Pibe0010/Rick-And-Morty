@@ -1,7 +1,7 @@
 import "./CardEpisode.css";
 import { useEffect, useState } from "react";
-import { Modal } from "./Modal.jsx";
-import { LoadingData } from "./LoadingData.jsx";
+import { Modal } from "../Modal.jsx";
+import { LoadingData } from "../LoadingData.jsx";
 
 export const CardEpisode = ({ episode }) => {
   const [isModalOpen, setIsModelOpen] = useState(false);

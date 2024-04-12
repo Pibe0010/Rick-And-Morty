@@ -23,7 +23,7 @@ export const SearchInfo = ({ onChange, value }) => {
         </div>
         <input
           className="search_input"
-          placeholder="Character name"
+          placeholder="Search Name"
           type="text"
           onChange={onChange}
           value={value}

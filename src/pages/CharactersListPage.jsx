@@ -4,7 +4,7 @@ import { Character } from "../components/Characters/Character.jsx";
 import { MainLayout } from "../Layouts/MainLayout";
 import { LoadingData } from "../components/LoadingData";
 import { SearchInfo } from "../components/SearchInfo.jsx";
-import { Paginations } from "../components/Characters/Paginations.jsx";
+import { PaginationCharacters } from "../components/Characters/PaginationCraracters.jsx";
 import { getCharacters } from "../Services/RickAndMortyServices.js";
 import { FilterStatus } from "../components/Characters/FilterStatus.jsx";
 import { FilterSpecies } from "../components/Characters/FilterSpecies.jsx";
@@ -57,11 +57,12 @@ export const CharactersListPage = () => {
       setNumberPages(1);
     }
   };
+
   return (
     <MainLayout>
       <section className="characterList-container">
         <h1 className="title">Characters</h1>
-        <Paginations
+        <PaginationCharacters
           numberPages={numberPages}
           addBackPage={addBackPage}
           addNextPage={addNextPage}
@@ -97,7 +98,7 @@ export const CharactersListPage = () => {
             })}
           </section>
         )}
-        <Paginations
+        <PaginationCharacters
           numberPages={numberPages}
           addBackPage={addBackPage}
           addNextPage={addNextPage}

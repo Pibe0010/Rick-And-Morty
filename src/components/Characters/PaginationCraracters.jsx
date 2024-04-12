@@ -1,6 +1,10 @@
 import { Button } from "../Button.jsx";
 
-export const Paginations = ({ numberPages, addBackPage, addNextPage }) => {
+export const PaginationCharacters = ({
+  numberPages,
+  addBackPage,
+  addNextPage,
+}) => {
   return (
     <section className="btn-page">
       <Button

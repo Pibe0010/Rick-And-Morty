@@ -1,26 +1,42 @@
 import "./Location.css";
 import { MainLayout } from "../Layouts/MainLayout.jsx";
 import { useEffect, useState } from "react";
-import { Button } from "../components/Button.jsx";
 import { LoadingData } from "../components/LoadingData.jsx";
-import { LocationCard } from "../components/LocationCard.jsx";
+import { LocationCard } from "../components/Locations/LocationCard.jsx";
+import { PaginationLocations } from "../components/Locations/PaginationLocations.jsx";
+import { ErrorNotFound } from "../components/ErrorNotFound.jsx";
+import { SearchInfo } from "../components/SearchInfo.jsx";
+import { getLocations } from "../Services/RickAndMortyServices.js";
+import { FilterType } from "../components/Locations/FilterType.jsx";
 
 export const LocationPage = () => {
   const [locations, setLocations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [numberPages, setNumberPages] = useState(1);
+  const [searchTermLocations, setSearchTermLocations] = useState("");
+  const [typesFilter, setTypesFilter] = useState("");
+
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
-    const isDataEpisodes = async () => {
-      const response = await fetch(
-        `https://rickandmortyapi.com/api/location?page=${numberPages}`
-      );
-      const data = await response.json();
+    const fetchData = async () => {
+      setLoading(true);
+      setHasError(false);
+      try {
+        const response = await getLocations(
+          numberPages,
+          searchTermLocations,
+          typesFilter
+        );
+        setLocations(response);
+      } catch (error) {
+        setHasError(true);
+      }
       setLoading(false);
-      setLocations(data.results);
     };
-    isDataEpisodes();
-  }, [numberPages]);
+
+    fetchData();
+  }, [numberPages, searchTermLocations, typesFilter]);
 
   const addNextPage = () => {
     if (numberPages < 7) {
@@ -41,22 +57,27 @@ export const LocationPage = () => {
     <MainLayout>
       <section className="locatios-container">
         <h1 className="title-location">Locations</h1>
-        <section className="btn-page">
-          <Button
-            page={numberPages}
-            onClick={addBackPage}
-            disabled={numberPages === 1}>
-            {numberPages > 1 ? `Page ${numberPages - 1}` : "Initial"}
-          </Button>
-          <Button
-            page={numberPages}
-            onClick={addNextPage}
-            disabled={numberPages === 4}>
-            {numberPages < 7 ? `Page ${numberPages + 1}` : "Finally"}
-          </Button>
+        <PaginationLocations
+          numberPages={numberPages}
+          addBackPage={addBackPage}
+          addNextPage={addNextPage}
+        />
+        <section className="container-search">
+          <SearchInfo
+            value={searchTermLocations}
+            onChange={(e) => setSearchTermLocations(e.target.value)}
+          />
+        </section>
+        <section className="container-filters">
+          <FilterType
+            value={typesFilter}
+            onChange={(e) => setTypesFilter(e.target.value)}
+          />
         </section>
         {loading ? (
           <LoadingData />
+        ) : hasError ? (
+          <ErrorNotFound />
         ) : (
           <section className="episodes">
             {locations.map((location) => {
@@ -65,20 +86,11 @@ export const LocationPage = () => {
           </section>
         )}
       </section>
-      <section className="btn-page">
-        <Button
-          page={numberPages}
-          onClick={addBackPage}
-          disabled={numberPages === 1}>
-          {numberPages > 1 ? `Page ${numberPages - 1}` : "Initial"}
-        </Button>
-        <Button
-          page={numberPages}
-          onClick={addNextPage}
-          disabled={numberPages === 4}>
-          {numberPages < 3 ? `Page ${numberPages + 1}` : "Finally"}
-        </Button>
-      </section>
+      <PaginationLocations
+        numberPages={numberPages}
+        addBackPage={addBackPage}
+        addNextPage={addNextPage}
+      />
     </MainLayout>
   );
 };
