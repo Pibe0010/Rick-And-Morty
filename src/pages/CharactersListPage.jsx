@@ -1,6 +1,6 @@
 import "./CharactersList.css";
 import { useEffect, useState } from "react";
-import { Character } from "../components/Character";
+import { Character } from "../components/Characters/Character.jsx";
 import { MainLayout } from "../Layouts/MainLayout";
 import { LoadingData } from "../components/LoadingData";
 import { SearchInfo } from "../components/SearchInfo.jsx";
@@ -9,6 +9,7 @@ import { getCharacters } from "../Services/RickAndMortyServices.js";
 import { FilterStatus } from "../components/Characters/FilterStatus.jsx";
 import { FilterSpecies } from "../components/Characters/FilterSpecies.jsx";
 import { FilterGender } from "../components/Characters/FilterGender.jsx";
+import { ErrorNotFound } from "../components/ErrorNotFound.jsx";
 
 export const CharactersListPage = () => {
   const [characters, setCharacters] = useState([]);
@@ -88,7 +89,7 @@ export const CharactersListPage = () => {
         {loading ? (
           <LoadingData />
         ) : hasError ? (
-          <p> ERROR: Not Found</p>
+          <ErrorNotFound />
         ) : (
           <section className="characters">
             {characters.map((character) => {

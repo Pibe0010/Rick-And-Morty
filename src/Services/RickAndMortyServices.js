@@ -16,7 +16,6 @@ export const getCharacters = async (
   }
   return data.results;
 };
-console.log(getCharacters);
 
 export const getEpisodes = async () => {
   const response = await fetch(`${API_URL}/episode`);
