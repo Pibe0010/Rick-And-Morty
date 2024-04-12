@@ -10,6 +10,7 @@ import { FilterStatus } from "../components/Characters/FilterStatus.jsx";
 import { FilterSpecies } from "../components/Characters/FilterSpecies.jsx";
 import { FilterGender } from "../components/Characters/FilterGender.jsx";
 import { ErrorNotFound } from "../components/ErrorNotFound.jsx";
+import { Contact } from "../components/Contact.jsx";
 
 export const CharactersListPage = () => {
   const [characters, setCharacters] = useState([]);
@@ -103,6 +104,9 @@ export const CharactersListPage = () => {
           addBackPage={addBackPage}
           addNextPage={addNextPage}
         />
+      </section>
+      <section className="contact">
+        <Contact />
       </section>
     </MainLayout>
   );

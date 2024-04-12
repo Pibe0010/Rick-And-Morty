@@ -8,6 +8,7 @@ import { ErrorNotFound } from "../components/ErrorNotFound.jsx";
 import { SearchInfo } from "../components/SearchInfo.jsx";
 import { getLocations } from "../Services/RickAndMortyServices.js";
 import { FilterType } from "../components/Locations/FilterType.jsx";
+import { Contact } from "../components/Contact.jsx";
 
 export const LocationPage = () => {
   const [locations, setLocations] = useState([]);
@@ -91,6 +92,9 @@ export const LocationPage = () => {
         addBackPage={addBackPage}
         addNextPage={addNextPage}
       />
+      <section className="contact">
+        <Contact />
+      </section>
     </MainLayout>
   );
 };

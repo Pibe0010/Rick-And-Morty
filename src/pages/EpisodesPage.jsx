@@ -7,6 +7,7 @@ import { PaginationEpisodes } from "../components/Episodes/PaginationEpisodes.js
 import { SearchInfo } from "../components/SearchInfo.jsx";
 import { getEpisodes } from "../Services/RickAndMortyServices.js";
 import { ErrorNotFound } from "../components/ErrorNotFound.jsx";
+import { Contact } from "../components/Contact.jsx";
 
 export const EpisodesPage = () => {
   const [episodes, setEpisodes] = useState([]);
@@ -77,6 +78,9 @@ export const EpisodesPage = () => {
           addBackPage={addBackPage}
           addNextPage={addNextPage}
         />
+        <section className="contact">
+          <Contact />
+        </section>
       </section>
     </MainLayout>
   );
