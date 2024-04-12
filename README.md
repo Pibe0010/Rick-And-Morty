@@ -1,8 +1,29 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# React Rick And Morty
 
-Currently, two official plugins are available:
+- Consumimos la API de rick and morty para obtener los datos de la serie.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  - Realizando sus respectivos fetch a la API.
+  - Manejamos los erros.
+
+- Creamos tres páginas para cada una de las peticiones.
+
+  - Personajes
+  - Episodios
+  - Localizaciones
+
+- Insertamos un Buscador en cada página, para mejorar la búsqueda de personajes, episodios y localización
+- Usamos UiVERSE para encontrar algunos elementos y modificarlos.
+- Usamos UiColors para encontrar colores deseados para el proyecto.
+
+## Tecnologías, recursos, elementos utilizados
+
+- React + Vite
+- react-router-dom
+- HTML
+- CSS
+- JavaScript
+- API Rick And Morty [API](https://rickandmortyapi.com/)
+- UIVERSE [elements](https://uiverse.io/)
+- UIColors [colors](https://uicolors.app/create)
