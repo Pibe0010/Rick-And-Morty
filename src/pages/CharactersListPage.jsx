@@ -44,13 +44,13 @@ export const CharactersListPage = () => {
         <section className="btn-page">
           <Button
             page={numberPages}
-            onClick={() => setNumberPages(addBackPage)}
+            onClick={addBackPage}
             disabled={numberPages === 1}>
             {numberPages > 1 ? `Page ${numberPages - 1}` : "Initial"}
           </Button>
           <Button
             page={numberPages}
-            onClick={() => setNumberPages(addNextPage)}
+            onClick={addNextPage}
             disabled={numberPages === 4}>
             {numberPages < 42 ? `Page ${numberPages + 1}` : "Finally"}
           </Button>
@@ -67,13 +67,13 @@ export const CharactersListPage = () => {
         <section className="btn-page">
           <Button
             page={numberPages}
-            onClick={() => setNumberPages(addBackPage)}
+            onClick={addBackPage}
             disabled={numberPages === 1}>
             {numberPages > 1 ? `Page ${numberPages - 1}` : "Initial"}
           </Button>
           <Button
             page={numberPages}
-            onClick={() => setNumberPages(addNextPage)}
+            onClick={addNextPage}
             disabled={numberPages === 4}>
             {numberPages < 42 ? `Page ${numberPages + 1}` : "Finally"}
           </Button>
