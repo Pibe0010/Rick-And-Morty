@@ -1,10 +1,6 @@
 import "./Character.css";
-import { useState } from "react";
-import { Modal } from "./Modal.jsx";
 
 export const Character = ({ character }) => {
-  const [isModalOpen, setIsModelOpen] = useState(false);
-
   return (
     <>
       <section>
@@ -15,11 +11,6 @@ export const Character = ({ character }) => {
           <div className="card_content">
             <span className="card_title">{character.name}</span>
             <span className="card_subtitle">{character.species}</span>
-            <section className="section-btn">
-              <button className="btn-info" onClick={() => setIsModelOpen(true)}>
-                More Info
-              </button>
-            </section>
             <section className="card_description">
               <p>Status: {character.status}</p>
               <p>Gender: {character.gender}</p>
@@ -27,11 +18,6 @@ export const Character = ({ character }) => {
             </section>
           </div>
         </article>
-        <Modal
-          className="section-btn"
-          open={isModalOpen}
-          character={character}
-          close={() => setIsModelOpen(false)}></Modal>
       </section>
     </>
   );

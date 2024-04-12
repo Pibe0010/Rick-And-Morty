@@ -41,15 +41,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.image-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 10px;
+  margin: 16px;
 }
-.charcter-img {
-  width: 100px;
-  height: 100px;
-  border-radius: 16px;
-}
-.character-name {
-  font-size: 1rem;
+.modal-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.3rem, 4vw, 1.8rem);
+  margin: 1rem;
 }
 @media (width > 1026px) {
   .modal {

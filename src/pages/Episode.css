@@ -21,3 +21,8 @@
   flex-wrap: wrap;
   margin: 15px;
 }
+.section-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+}

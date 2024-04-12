@@ -34,14 +34,6 @@
   transform: translateY(136px);
   transition: transform 0.25s;
 }
-.section-btn {
-  display: flex;
-  justify-content: flex-end;
-}
-.section-btn .btn-info {
-  position: absolute;
-  padding: 5px 10px;
-}
 .card_content::before {
   content: "";
   position: absolute;
