@@ -3,24 +3,41 @@ import { useEffect, useState } from "react";
 import { Character } from "../components/Character";
 import { MainLayout } from "../Layouts/MainLayout";
 import { LoadingData } from "../components/LoadingData";
-import { Button } from "../components/Button.jsx";
+import { SearchInfo } from "../components/SearchInfo.jsx";
+import { Paginations } from "../components/Characters/Paginations.jsx";
+import { getCharacters } from "../Services/RickAndMortyServices.js";
+import { FilterStatus } from "../components/Characters/FilterStatus.jsx";
+import { FilterSpecies } from "../components/Characters/FilterSpecies.jsx";
+import { FilterGender } from "../components/Characters/FilterGender.jsx";
 
 export const CharactersListPage = () => {
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(true);
   const [numberPages, setNumberPages] = useState(1);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [statusFilter, setStatusFilter] = useState("");
+  const [speciesFilter, setSpeciesFilter] = useState("");
+  const [genderFilter, setGenderFilter] = useState("");
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     const isDataCharacter = async () => {
-      const response = await fetch(
-        `https://rickandmortyapi.com/api/character?page=${numberPages}`
-      );
-      const data = await response.json();
+      try {
+        const response = await getCharacters(
+          numberPages,
+          searchTerm,
+          statusFilter,
+          speciesFilter,
+          genderFilter
+        );
+        setCharacters(response);
+      } catch (error) {
+        setHasError(true);
+      }
       setLoading(false);
-      setCharacters(data.results);
     };
     isDataCharacter();
-  }, [numberPages]);
+  }, [numberPages, searchTerm, statusFilter, speciesFilter, genderFilter]);
 
   const addNextPage = () => {
     if (numberPages < 42) {
@@ -36,27 +53,39 @@ export const CharactersListPage = () => {
       setNumberPages(1);
     }
   };
-
   return (
     <MainLayout>
       <section className="characterList-container">
         <h1 className="title">Characters</h1>
-        <section className="btn-page">
-          <Button
-            page={numberPages}
-            onClick={addBackPage}
-            disabled={numberPages === 1}>
-            {numberPages > 1 ? `Page ${numberPages - 1}` : "Initial"}
-          </Button>
-          <Button
-            page={numberPages}
-            onClick={addNextPage}
-            disabled={numberPages === 4}>
-            {numberPages < 42 ? `Page ${numberPages + 1}` : "Finally"}
-          </Button>
+        <Paginations
+          numberPages={numberPages}
+          addBackPage={addBackPage}
+          addNextPage={addNextPage}
+        />
+        <section className="container-search">
+          <SearchInfo
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </section>
+        <section className="container-filters">
+          <FilterStatus
+            value={statusFilter}
+            onChange={(e) => setStatusFilter(e.target.value)}
+          />
+          <FilterSpecies
+            value={speciesFilter}
+            onChange={(e) => setSpeciesFilter(e.target.value)}
+          />
+          <FilterGender
+            value={genderFilter}
+            onChange={(e) => setGenderFilter(e.target.value)}
+          />
         </section>
         {loading ? (
           <LoadingData />
+        ) : hasError ? (
+          <p> ERROR: Not Found</p>
         ) : (
           <section className="characters">
             {characters.map((character) => {
@@ -64,20 +93,11 @@ export const CharactersListPage = () => {
             })}
           </section>
         )}
-        <section className="btn-page">
-          <Button
-            page={numberPages}
-            onClick={addBackPage}
-            disabled={numberPages === 1}>
-            {numberPages > 1 ? `Page ${numberPages - 1}` : "Initial"}
-          </Button>
-          <Button
-            page={numberPages}
-            onClick={addNextPage}
-            disabled={numberPages === 4}>
-            {numberPages < 42 ? `Page ${numberPages + 1}` : "Finally"}
-          </Button>
-        </section>
+        <Paginations
+          numberPages={numberPages}
+          addBackPage={addBackPage}
+          addNextPage={addNextPage}
+        />
       </section>
     </MainLayout>
   );
