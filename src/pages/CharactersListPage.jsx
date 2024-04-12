@@ -21,7 +21,9 @@ export const CharactersListPage = () => {
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
-    const isDataCharacter = async () => {
+    const fetchData = async () => {
+      setLoading(true);
+      setHasError(false);
       try {
         const response = await getCharacters(
           numberPages,
@@ -36,7 +38,8 @@ export const CharactersListPage = () => {
       }
       setLoading(false);
     };
-    isDataCharacter();
+
+    fetchData();
   }, [numberPages, searchTerm, statusFilter, speciesFilter, genderFilter]);
 
   const addNextPage = () => {
