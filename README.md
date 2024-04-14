@@ -7,11 +7,12 @@
   - Realizando sus respectivos fetch a la API.
   - Manejamos los erros.
 
-- Creamos tres páginas para cada una de las peticiones.
+- Creamos tres páginas para cada una de las peticiones y la pagina de no encontrada.
 
   - Personajes
   - Episodios
   - Localizaciones
+  - Pagina no encontrada
 
 - Insertamos un Buscador en cada página, para mejorar la búsqueda de personajes, episodios y localización
 - Usamos UiVERSE para encontrar algunos elementos y modificarlos.
